@@ -1,0 +1,89 @@
+# LiveMind Backend - Free & Fast Dependencies
+# All free services with generous limits!
+
+# =============================================================================
+# CORE FRAMEWORK
+# =============================================================================
+fastapi==0.104.1
+uvicorn[standard]==0.24.0
+python-multipart==0.0.6
+python-dotenv==1.0.0
+
+# =============================================================================
+# PATHWAY - Real-Time Processing
+# =============================================================================
+pathway==0.post1
+
+# =============================================================================
+# FREE LLM INTEGRATION (No OpenAI costs!)
+# =============================================================================
+# Groq - FREE and FAST LLM API
+groq==0.4.1
+
+# Alternative free options (uncomment if needed)
+# together==0.2.10  # Together AI - free tier
+# transformers==4.36.0  # Local Hugging Face models
+# torch==2.1.0  # For local models
+
+# =============================================================================
+# VECTOR DATABASE (FREE)
+# =============================================================================
+# ChromaDB - Free local vector database
+chromadb==0.4.18
+sentence-transformers==2.2.2
+
+# Alternative: Pinecone (has free tier)
+# pinecone-client==2.2.4
+
+# =============================================================================
+# DATA PROCESSING
+# =============================================================================
+pandas==2.1.4
+numpy==1.24.3
+pydantic==2.5.0
+pydantic-settings==2.1.0
+httpx==0.25.2
+aiofiles==23.2.0
+python-jose[cryptography]==3.3.0
+
+# =============================================================================
+# DATA SOURCES (All have free tiers!)
+# =============================================================================
+# News APIs
+feedparser==6.0.10  # RSS feeds (completely free)
+praw==7.7.1  # Reddit API (free)
+requests==2.31.0
+
+# Financial Data (Free APIs)
+yfinance==0.2.28  # Yahoo Finance (free)
+alpha-vantage==2.3.1  # Alpha Vantage (free tier)
+
+# Weather Data
+pyowm==3.3.0  # OpenWeatherMap (free tier)
+
+# =============================================================================
+# CACHING & STORAGE
+# =============================================================================
+redis==5.0.1
+aioredis==2.0.1
+
+# =============================================================================
+# UTILITIES
+# =============================================================================
+python-json-logger==2.0.7
+schedule==1.2.0
+websockets==12.0
+python-socketio==5.10.0
+
+# =============================================================================
+# DEVELOPMENT
+# =============================================================================
+pytest==7.4.3
+pytest-asyncio==0.21.1
+black==23.11.0
+flake8==6.1.0
+
+# =============================================================================
+# MONITORING (Optional)
+# =============================================================================
+psutil==5.9.6  # System monitoring
