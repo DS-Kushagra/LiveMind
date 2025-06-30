@@ -67,7 +67,7 @@ class Settings(BaseSettings):
     # =============================================================================
     ALLOWED_ORIGINS: List[str] = [
         "http://localhost:3000",
-        "http://127.0.0.1:3000",
+        "http://127.0.0.1:3000", 
         "http://localhost:8000",
         "http://127.0.0.1:8000"
     ]
@@ -81,7 +81,10 @@ class Settings(BaseSettings):
     @validator("ALLOWED_ORIGINS", pre=True)
     def assemble_cors_origins(cls, v):
         if isinstance(v, str):
+            # Handle comma-separated string
             return [i.strip() for i in v.split(",")]
+        elif isinstance(v, list):
+            return v
         return v
     
     class Config:

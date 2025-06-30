@@ -15,6 +15,7 @@ from datetime import datetime
 from app.core.config import settings
 from app.api.routes import api_router
 from app.core.logging import setup_logging
+from app.services.pathway_pipeline import pipeline
 
 # Setup logging
 setup_logging()
@@ -67,6 +68,33 @@ class ConnectionManager:
                 self.active_connections.remove(connection)
 
 manager = ConnectionManager()
+
+@app.on_event("startup")
+async def startup_event():
+    """Initialize services on startup"""
+    try:
+        logger.info("🚀 Starting LiveMind services...")
+        
+        # Initialize the real-time pipeline
+        await pipeline.initialize()
+        
+        # Start the background pipeline
+        pipeline.start_pipeline()
+        
+        logger.info("✅ All services initialized successfully!")
+        
+    except Exception as e:
+        logger.error(f"❌ Startup failed: {e}")
+
+@app.on_event("shutdown") 
+async def shutdown_event():
+    """Cleanup on shutdown"""
+    try:
+        logger.info("🛑 Shutting down LiveMind services...")
+        pipeline.stop_pipeline()
+        logger.info("✅ Shutdown complete")
+    except Exception as e:
+        logger.error(f"❌ Shutdown error: {e}")
 
 @app.websocket("/ws")
 async def websocket_endpoint(websocket: WebSocket):

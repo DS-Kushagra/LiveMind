@@ -6,7 +6,8 @@ LiveMind/
 ├── 📄 .gitignore                   # Git ignore rules
 ├── 📄 .env.example                 # Environment variables template
 ├── 📄 setup_and_test.py           # Quick setup script
-├── 📁 data/                       # Data storage (gitignored)
+├── � test_pipeline.py             # Pipeline testing script
+├── �📁 data/                       # Data storage (gitignored)
 ├── 📁 logs/                       # Application logs (gitignored)
 ├── 📁 backend/                    # Backend application
 │   ├── 📄 main.py                 # FastAPI entry point
@@ -17,7 +18,18 @@ LiveMind/
 │   │   │   ├── 📄 __init__.py
 │   │   │   ├── 📄 config.py       # Configuration management
 │   │   │   └── 📄 logging.py      # Logging setup
-│   │   └── 📁 api/                # API endpoints
+│   │   ├── 📁 api/                # API endpoints
+│   │   │   ├── 📄 __init__.py
+│   │   │   ├── 📄 routes.py       # Route configuration
+│   │   │   └── 📁 endpoints/      # Individual endpoints
+│   │   │       ├── 📄 __init__.py
+│   │   │       └── 📄 query.py    # Query processing & pipeline control
+│   │   └── 📁 services/           # Business logic services ⭐ NEW!
+│   │       ├── 📄 __init__.py
+│   │       ├── 📄 vector_db.py    # ChromaDB vector database service
+│   │       ├── 📄 llm_service.py  # Groq LLM integration (FREE!)
+│   │       ├── 📄 data_sources.py # Multi-source data fetching
+│   │       └── 📄 pathway_pipeline.py # Real-time processing pipeline
 │   │       ├── 📄 __init__.py
 │   │       ├── 📄 routes.py       # Route configuration
 │   │       └── 📁 endpoints/      # Individual endpoints
